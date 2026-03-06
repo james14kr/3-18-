@@ -1,0 +1,82 @@
+.header {
+  position: sticky;
+  font-family: 'Noto Sans KR', 'Pretendard', sans-serif;
+}
+
+.utilBar {
+  width: 100%;
+  background-color:  #63b3ed;
+}
+
+.utilInner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 로고 */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #3182ce, #63b3ed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 0 20px rgba(99, 179, 237, 0.3);
+}
+
+.logoTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: black;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+}
+
+.logoSub {
+  font-size: 10px;
+  color: black;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+/* 네비게이션 */
+.utilMenu {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  color: black;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navItem:hover {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(99, 179, 237, 0.15);
+}
