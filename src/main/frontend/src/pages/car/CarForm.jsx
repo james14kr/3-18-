@@ -47,64 +47,57 @@ const CarForm = () => {
 
   return (
     <div className={styles.container}>
-      <div>
-        <div>
-          <h2>차량 등록</h2>
-        </div>
-        <div className={styles.input}>
-          <div>
-            제조사
-            <Select 
+      <div className={styles.formSection}>
+        <h2>차량 등록</h2>
+        <div className={styles.inputGroup}>
+          <div className={styles.field}>
+            <label>제조사</label>
+            <Select
               name='company'
               value={carData.company}
               onChange={handleChange}/>
-            </div>
-          <div>
-            모델명
+          </div>
+          <div className={styles.field}>
+            <label>모델명</label>
             <Input
               name='modelName'
               value={carData.modelName}
               onChange={handleChange}/>
           </div>
-          <div>
-            차량가격
+          <div className={styles.field}>
+            <label>차량가격</label>
             <Input
               name='price'
               value={carData.price}
               onChange={handleChange}/>
           </div>
         </div>
-        <div>
-          <Button
-            onClick={submitInfo}/>
+        <div className={styles.btnArea}>
+          <Button onClick={submitInfo}/>
         </div>
       </div>
-      <div>
-        <div>
-          <h2>등록된 차량 정보</h2>
-        </div>
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <td>No</td>
-                <td>모델번호</td>
-                <td>모델명</td>
-                <td>제조사</td>
+      <div className={styles.listSection}>
+        <h2>등록된 차량 정보</h2>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <td>No</td>
+              <td>모델번호</td>
+              <td>모델명</td>
+              <td>제조사</td>
+            </tr>
+          </thead>
+          <tbody>
+            {carList.map((car) => (
+              <tr key={car.carNum}>
+                <td>{car.carNum}</td>
+                <td>{car.modelNum}</td>
+                <td>{car.modelName}</td>
+                <td>{car.company}</td>
               </tr>
-            </thead>
-            <tbody>
-              {carList.map((car) => (
-                <tr key={car.carNum}>
-                  <td>{car.carNum}</td>
-                  <td>{car.modelNum}</td>
-                  <td>{car.modelName}</td>
-                  <td>{car.company}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   )
