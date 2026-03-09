@@ -7,7 +7,11 @@ import { getCarInfo, regCarInfo } from '../../api/carApi'
 
 const CarForm = () => {
 
-  const[carData, setCarkData] = useState({})
+  const[carData, setCarkData] = useState({
+    company : '',
+    modelName : '',
+    price : 0
+  })
   const[carList, setCarList] = useState([])
 
   const handleChange = (e) => {
@@ -42,7 +46,7 @@ const CarForm = () => {
 
 
   return (
-    <div>
+    <div className={styles.container}>
       <div>
         <div>
           <h2>차량 등록</h2>
@@ -79,17 +83,28 @@ const CarForm = () => {
         <div>
           <h2>등록된 차량 정보</h2>
         </div>
-
-          {
-            carList.map((car) => (
-              <div key={car.carNum}>  
-                {car.carNum}
-                {car.modelNum}
-                {car.modelName}
-                {car.company}
-              </div>
-            ))
-          }
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <td>No</td>
+                <td>모델번호</td>
+                <td>모델명</td>
+                <td>제조사</td>
+              </tr>
+            </thead>
+            <tbody>
+              {carList.map((car) => (
+                <tr key={car.carNum}>
+                  <td>{car.carNum}</td>
+                  <td>{car.modelNum}</td>
+                  <td>{car.modelName}</td>
+                  <td>{car.company}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   )
