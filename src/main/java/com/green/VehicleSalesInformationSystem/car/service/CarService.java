@@ -5,6 +5,8 @@ import com.green.VehicleSalesInformationSystem.car.mapper.CarMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CarService {
@@ -13,6 +15,10 @@ public class CarService {
 
   public void regCarInfo(CarDTO carDTO){
     carMapper.insertCarInfo(carDTO);
+  }
+
+  public List<CarDTO> getCarInfo(){
+    return carMapper.selectCarInfo();
   }
 
 }

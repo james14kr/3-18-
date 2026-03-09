@@ -5,6 +5,14 @@
 <!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
 <mapper namespace="com.green.VehicleSalesInformationSystem.car.mapper.CarMapper">
 
+    <resultMap id="carInfo" type="com.green.VehicleSalesInformationSystem.car.dto.CarDTO">
+        <id column="CAR_NUM" property="carNum"/>
+        <result column="MODEL_NUM" property="modelNum"/>
+        <result column="MODEL_NAME" property="modelName"/>
+        <result column="PRICE" property="price"/>
+        <result column="COMPANY" property="company"/>
+    </resultMap>
+
     <insert id="insertCarInfo">
         INSERT INTO CAR_INFO(
             CAR_NUM
@@ -20,6 +28,15 @@
             ,#{company}
         )
     </insert>
+
+    <select id="selectCarInfo" resultMap="carInfo">
+        SELECT CAR_NUM
+            ,MODEL_NUM
+            ,MODEL_NAME
+            ,COMPANY
+        FROM CAR_INFO
+        ORDER BY CAR_NUM DESC;
+    </select>
 	
 </mapper>
 

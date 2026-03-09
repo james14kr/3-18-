@@ -1,18 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './CarForm.module.css'
 import Input from '../../common/Input'
 import Select from '../../common/Select'
 import Button from '../../common/Button'
-import { regCarInfo } from '../../api/carApi'
+import { getCarInfo, regCarInfo } from '../../api/carApi'
 
 const CarForm = () => {
 
-  const[carData, setCarkData] = useState({
-    modelNum : '',
-    modelName : '',
-    company : '',
-    price : ''
-  })
+  const[carData, setCarkData] = useState({})
+  const[carList, setCarList] = useState([])
 
   const handleChange = (e) => {
     const {name, value} = e.target
@@ -24,11 +20,25 @@ const CarForm = () => {
       await regCarInfo(carData)
       alert('등록 성공')
       setCarkData({modelNum : '', modelName : '', company : '', price : ''})
+      await selectCarInfo()
     }catch(e){
       console.log(e)
       alert('등록 실패')
     }
   }
+
+  const selectCarInfo = async () => {
+    try{
+      const result = await getCarInfo();
+      setCarList(result.data)
+    }catch(e){
+      console.log(e)
+    }
+  }
+
+  useEffect(() => {
+    selectCarInfo()
+  }, []) 
 
 
   return (
@@ -66,7 +76,20 @@ const CarForm = () => {
         </div>
       </div>
       <div>
+        <div>
+          <h2>등록된 차량 정보</h2>
+        </div>
 
+          {
+            carList.map((car) => (
+              <div key={car.carNum}>  
+                {car.carNum}
+                {car.modelNum}
+                {car.modelName}
+                {car.company}
+              </div>
+            ))
+          }
       </div>
     </div>
   )
