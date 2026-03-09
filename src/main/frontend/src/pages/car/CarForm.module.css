@@ -1,3 +1,15 @@
-.input{
-  display: flex;
+.container{
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.formSection{
+  background:  #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 28px;
+  margin-bottom: 36px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }

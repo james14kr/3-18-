@@ -47,26 +47,26 @@ const CarForm = () => {
 
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.formSection}>
         <div>
           <h2>차량 등록</h2>
         </div>
-        <div className={styles.input}>
-          <div>
+        <div className={styles.inputGroup}>
+          <div className={styles.field}>
             제조사
             <Select 
               name='company'
               value={carData.company}
               onChange={handleChange}/>
-            </div>
-          <div>
+          </div>
+          <div className={styles.field}>
             모델명
             <Input
               name='modelName'
               value={carData.modelName}
               onChange={handleChange}/>
           </div>
-          <div>
+          <div className={styles.field}>
             차량가격
             <Input
               name='price'
@@ -74,17 +74,17 @@ const CarForm = () => {
               onChange={handleChange}/>
           </div>
         </div>
-        <div>
+        <div className={styles.btnArea}>
           <Button
             onClick={submitInfo}/>
         </div>
       </div>
-      <div>
+      <div className={styles.listSection}>
         <div>
           <h2>등록된 차량 정보</h2>
         </div>
         <div>
-          <table>
+          <table className={styles.table}>
             <thead>
               <tr>
                 <td>No</td>
