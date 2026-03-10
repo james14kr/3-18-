@@ -7,23 +7,23 @@ import { getCarInfo, regCarInfo } from '../../api/carApi'
 
 const CarForm = () => {
 
-  const[carData, setCarkData] = useState({
+  const[carData, setCarData] = useState({
     company : '',
     modelName : '',
-    price : 0
+    price : ''
   })
   const[carList, setCarList] = useState([])
 
   const handleChange = (e) => {
     const {name, value} = e.target
-    setCarkData(prev => ({...prev, [name] : value}))
+    setCarData(prev => ({...prev, [name] : value}))
   }
 
   const submitInfo = async () => {
     try{
       await regCarInfo(carData)
       alert('등록 성공')
-      setCarkData({modelNum : '', modelName : '', company : '', price : ''})
+      setCarData({modelName : '', company : '', price : ''})
       await selectCarInfo()
     }catch(e){
       console.log(e)
@@ -53,25 +53,27 @@ const CarForm = () => {
         </div>
         <div className={styles.inputGroup}>
           <div className={styles.field}>
-            제조사
+            <p><span>🏭</span>제조사</p>
             <Select 
               name='company'
               value={carData.company}
               onChange={handleChange}/>
           </div>
           <div className={styles.field}>
-            모델명
+            <p><span>⚙️</span>모델명</p>
             <Input
               name='modelName'
               value={carData.modelName}
-              onChange={handleChange}/>
+              onChange={handleChange}
+              placeholder='모델명을 입력하세요'/>
           </div>
           <div className={styles.field}>
-            차량가격
+            <p><span>💳</span>차량가격</p>
             <Input
               name='price'
               value={carData.price}
-              onChange={handleChange}/>
+              onChange={handleChange}
+              placeholder='차량 가격을 입력하세요'/>
           </div>
         </div>
         <div className={styles.btnArea}>
@@ -83,7 +85,7 @@ const CarForm = () => {
         <div>
           <h2>등록된 차량 정보</h2>
         </div>
-        <div>
+        <div className={styles.tableGroup}>
           <table className={styles.table}>
             <thead>
               <tr>
@@ -94,9 +96,9 @@ const CarForm = () => {
               </tr>
             </thead>
             <tbody>
-              {carList.map((car) => (
-                <tr key={car.carNum}>
-                  <td>{car.carNum}</td>
+              {carList.map((car, index) => (
+                <tr key={index}>
+                  <td>{index+1}</td>
                   <td>{car.modelNum}</td>
                   <td>{car.modelName}</td>
                   <td>{car.company}</td>

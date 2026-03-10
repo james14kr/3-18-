@@ -3,7 +3,7 @@ import styles from './Button.module.css'
 
 const Button = ({...props}) => {
   return (
-    <button {...props}>
+    <button className={styles.btn} {...props}>
       등록
     </button>
   )
