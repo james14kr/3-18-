@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git mv \"src/main/frontend/src/pages/sale/SaleList.jsx\" \"src/main/frontend/src/pages/sale/SaleListTemp.jsx\")",
+      "Bash(git mv \"src/main/frontend/src/pages/sale/SaleListTemp.jsx\" \"src/main/frontend/src/pages/sale/SaleList.jsx\")",
+      "Bash(ren \"SaleList.jsx\" \"SaleListTemp.jsx\")",
+      "Bash(ren \"SaleListTemp.jsx\" \"SaleList.jsx\")"
+    ]
+  }
+}

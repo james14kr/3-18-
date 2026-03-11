@@ -5,6 +5,11 @@ import Select from '../../common/Select'
 import Button from '../../common/Button'
 import { getCarInfo, regCarInfo } from '../../api/carApi'
 
+const companyOption = [
+  {value : '현대', label : '현대'},
+  {value : '기아', label : '기아'}
+]
+
 const CarForm = () => {
 
   const[carData, setCarData] = useState({
@@ -57,6 +62,8 @@ const CarForm = () => {
             <Select 
               name='company'
               value={carData.company}
+              option={companyOption}
+              placeholder='제조사를 선택하세요'
               onChange={handleChange}/>
           </div>
           <div className={styles.field}>
@@ -98,7 +105,7 @@ const CarForm = () => {
             <tbody>
               {carList.map((car, index) => (
                 <tr key={index}>
-                  <td>{index+1}</td>
+                  <td>{carList.length - index}</td>
                   <td>{car.modelNum}</td>
                   <td>{car.modelName}</td>
                   <td>{car.company}</td>
