@@ -6,48 +6,28 @@
 <mapper namespace="com.green.VehicleSalesInformationSystem.saleInfo.mapper.SaleInfoMapper">
 
     <insert id="insertSaleInfo">
+        <!--
+            SALE_INFO 테이블에 판매 정보 INSERT
+            주의 사항:
+              1. DB 컬럼명(BUYER)과 MyBatis 파라미터(#{buyer})는 별개
+                 - 컬럼명 : 테이블에 실제 존재하는 이름 (BUYER)
+                 - #{파라미터} : SaleInfoDTO의 필드명과 일치해야 함 (buyer)
+              2. VALUES 항목 사이 쉼표(,) 누락 시 SQL 문법 오류 발생
+              3. PHONE 컬럼은 VARCHAR(13) → '010-0000-0000' 형식(13자) 저장 가능
+        -->
         INSERT INTO SALE_INFO(
-            BUYER_NAME
+            BUYER
             ,COLOR
             ,MODEL_NAME
             ,PHONE
         )VALUES(
-            #{buyerName}
+            #{buyer}
             ,#{color}
             ,#{modelName}
-            #{phone}
+            ,#{phone}
         )
     </insert>
 
+
+
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
