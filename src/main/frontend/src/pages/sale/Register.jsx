@@ -24,7 +24,8 @@ const Register = () => {
     buyer : '',
     color : '',
     modelName : '',
-    phone : ''
+    phone : '',
+    buyDate : ''
   })
 
   // DB에서 불러온 차량 모델 목록을 담는 state
@@ -65,7 +66,7 @@ const Register = () => {
       await regSaleInfo(saleData)
       alert('등록 성공')
       // 등록 성공 후 입력값 초기화
-      setSaleData({buyer : '', color : '', modelName : '', phone : ''})
+      setSaleData({buyer : '', color : '', modelName : '', phone : '', buyDate : ''})
       nav('/list')
     }catch(e){
       console.log(e)

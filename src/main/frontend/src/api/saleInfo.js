@@ -8,3 +8,12 @@ export const regSaleInfo = async(saleData) => {
     console.log('판매 정보 등록 axios 오류', e)
   }
 }
+
+export const getSaleList = async () => {
+  try{
+    const response = await axios.get("http://localhost:8080/saleInfo/list")
+    return response
+  }catch(e){
+    console.log('판매 정보 조회 axios 오류'. e)
+  }
+}

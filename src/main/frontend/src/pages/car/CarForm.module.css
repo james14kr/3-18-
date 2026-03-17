@@ -90,3 +90,7 @@
   text-align: center;
   padding: 12px 15px;
 }
+
+.error{
+  color: red;
+}

@@ -5,6 +5,8 @@ import com.green.VehicleSalesInformationSystem.saleInfo.mapper.SaleInfoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class SaleInfoService {
@@ -13,6 +15,10 @@ public class SaleInfoService {
 
   public void regSaleInfo(SaleInfoDTO saleInfoDTO){
     saleInfoMapper.insertSaleInfo(saleInfoDTO);
+  }
+
+  public List<SaleInfoDTO> getSaleInfo(){
+    return saleInfoMapper.selectSaleInfo();
   }
 
 }

@@ -5,7 +5,9 @@
       "Bash(git mv \"src/main/frontend/src/pages/sale/SaleListTemp.jsx\" \"src/main/frontend/src/pages/sale/SaleList.jsx\")",
       "Bash(ren \"SaleList.jsx\" \"SaleListTemp.jsx\")",
       "Bash(ren \"SaleListTemp.jsx\" \"SaleList.jsx\")",
-      "Bash(./gradlew compileJava)"
+      "Bash(./gradlew compileJava)",
+      "Bash(ls -la \"/c/Users/user/Desktop/새 폴더 \\(2\\)/3-18-\")",
+      "Bash(find \"/c/Users/user/Desktop/새 폴더 \\(2\\)/3-18-/src\" -type f)"
     ]
   }
 }

@@ -5,6 +5,15 @@
 <!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
 <mapper namespace="com.green.VehicleSalesInformationSystem.saleInfo.mapper.SaleInfoMapper">
 
+    <resultMap id="saleInfo" type="com.green.VehicleSalesInformationSystem.saleInfo.dto.SaleInfoDTO">
+        <result column="BUYER" property="buyer"/>
+        <result column="PHONE" property="phone"/>
+        <result column="BUY_DATE" property="buyDate"/>
+        <result column="COLOR" property="color"/>
+        <result column="MODEL_NAME" property="modelName"/>
+        <result column="PRICE" property="price"/>
+    </resultMap>
+
     <insert id="insertSaleInfo">
         <!--
             SALE_INFO 테이블에 판매 정보 INSERT
@@ -27,6 +36,18 @@
             ,#{phone}
         )
     </insert>
+
+    <select id="selectSaleInfo" resultMap="saleInfo">
+        SELECT S.BUYER
+            ,S.PHONE
+            ,S.BUY_DATE
+            ,S.COLOR
+            ,S.MODEL_NAME
+            ,C.PRICE
+        FROM SALE_INFO S
+        JOIN CAR_INFO C ON S.MODEL_NAME = C.MODEL_NAME
+        ORDER BY S.BUY_DATE ASC
+    </select>
 
 
 

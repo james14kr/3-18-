@@ -3,6 +3,8 @@ package com.green.VehicleSalesInformationSystem.saleInfo.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 public class SaleInfoDTO {
@@ -13,5 +15,6 @@ public class SaleInfoDTO {
   private String color;     // 색상
   private String modelName; // 모델명 (CAR_INFO의 MODEL_NAME 참조)
   private String phone;     // 연락처 (형식: 010-0000-0000, VARCHAR(13))
-
+  private LocalDateTime buyDate;
+  private int price;
 }
