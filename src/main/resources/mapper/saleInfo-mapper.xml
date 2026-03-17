@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.green.VehicleSalesInformationSystem.saleInfo.mapper.SaleInfoMapper">
+
+    <resultMap id="saleInfo" type="com.green.VehicleSalesInformationSystem.saleInfo.dto.SaleInfoDTO">
+        <result column="BUYER" property="buyer"/>
+        <result column="PHONE" property="phone"/>
+        <result column="BUY_DATE" property="buyDate"/>
+        <result column="COLOR" property="color"/>
+        <result column="MODEL_NAME" property="modelName"/>
+        <result column="PRICE" property="price"/>
+    </resultMap>
+
+    <insert id="insertSaleInfo">
+        INSERT INTO SALE_INFO(
+            BUYER
+            ,COLOR
+            ,PHONE
+            ,MODEL_NUM
+        )VALUES(
+            #{buyer}
+            ,#{color}
+            ,#{phone}
+            ,#{modelNum}
+        )
+    </insert>
+
+    <select id="selectSaleInfo" resultMap="saleInfo">
+        SELECT S.BUYER
+            ,S.PHONE
+            ,S.BUY_DATE
+            ,S.COLOR
+            ,C.MODEL_NAME
+            ,C.PRICE
+        FROM SALE_INFO S
+        JOIN CAR_INFO C ON S.MODEL_NUM = C.MODEL_NUM
+        ORDER BY S.BUY_DATE DESC
+    </select>
+
+</mapper>

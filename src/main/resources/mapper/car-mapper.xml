@@ -6,8 +6,7 @@
 <mapper namespace="com.green.VehicleSalesInformationSystem.car.mapper.CarMapper">
 
     <resultMap id="carInfo" type="com.green.VehicleSalesInformationSystem.car.dto.CarDTO">
-        <id column="CAR_NUM" property="carNum"/>
-        <result column="MODEL_NUM" property="modelNum"/>
+        <id column="MODEL_NUM" property="modelNum"/>
         <result column="MODEL_NAME" property="modelName"/>
         <result column="PRICE" property="price"/>
         <result column="COMPANY" property="company"/>
@@ -15,25 +14,24 @@
 
     <insert id="insertCarInfo">
         INSERT INTO CAR_INFO(
-            MODEL_NUM
-            ,MODEL_NAME
+            MODEL_NAME
             ,PRICE
             ,COMPANY
         )VALUES(
-            #{modelNum}
-            ,#{modelName}
+            #{modelName}
             ,#{price}
             ,#{company}
         )
     </insert>
 
     <select id="selectCarInfo" resultMap="carInfo">
-        SELECT CAR_NUM
-            ,MODEL_NUM
+        SELECT
+            MODEL_NUM
             ,MODEL_NAME
+            ,PRICE
             ,COMPANY
         FROM CAR_INFO
-        ORDER BY CAR_NUM DESC;
+        ORDER BY MODEL_NUM DESC
     </select>
 	
 </mapper>
