@@ -15,14 +15,12 @@
 
     <insert id="insertCarInfo">
         INSERT INTO CAR_INFO(
-            CAR_NUM
-            ,MODEL_NUM
+            MODEL_NUM
             ,MODEL_NAME
             ,PRICE
             ,COMPANY
         )VALUES(
-            #{carNum}
-            ,#{modelNum}
+            #{modelNum}
             ,#{modelName}
             ,#{price}
             ,#{company}
@@ -39,34 +37,3 @@
     </select>
 	
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

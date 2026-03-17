@@ -1,0 +1,26 @@
+.btn {
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #2b6cb0, #3182ce);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(49, 130, 206, 0.35);
+  font-family: 'Noto Sans KR', 'Pretendard', sans-serif;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #2c5282, #2b6cb0);
+  box-shadow: 0 6px 18px rgba(49, 130, 206, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(49, 130, 206, 0.3);
+}

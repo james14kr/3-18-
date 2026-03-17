@@ -1,0 +1,26 @@
+.select {
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 0.65rem 0.85rem;
+  border: 1.5px solid #cbd5e0;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.18s ease;
+  color: #2d3748;
+  background-color: #f7fafc;
+  cursor: pointer;
+  background-position: right 0.85rem center;
+  padding-right: 2.2rem;
+  font-family: 'Noto Sans KR', 'Pretendard', sans-serif;
+}
+
+.select:hover {
+  border-color: #90cdf4;
+  background-color: #fff;
+}
+
+.select:focus {
+  border-color: #3182ce;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.15);
+}

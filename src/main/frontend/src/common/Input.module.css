@@ -1,13 +1,20 @@
 .input{
+  width: 100%;
   font-size: 0.9rem;
-  padding: 0.3rem;
+  padding: 0.3rem;                                              
   border: 1px solid #ced4da;
   border-radius: 4px;
   outline: none;
   transition: all 0.15s;
 }
 
+.input:hover{
+  border-color: #90cdf3;
+  background-color: #fff;
+}
+
 .input:focus{
   border-color: #86b7fe;
+  background-color: #fff;
   box-shadow: 0 0 0 0.25 rgba(13, 110, 253, 0.25);
 }
